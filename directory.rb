@@ -22,12 +22,23 @@ def print_header
 end
 
 def print(students)
-  students.each.with_index(1) do |student, i|
-    if student[:name].length < 12
+  print_count = 1
+  while print_count <= 1 do
+    print_count += 1
+    students.each.with_index(1) do |student, i|
       puts "#{i}. #{student[:name]} (#{student[:cohort]} cohort)"
     end
   end
 end
+
+# def print(students)
+#   while true do
+#     students.each_with_index(1) do |student, i|
+#       puts "#{i}. #{student[:name]} (#{student[:cohort]} cohort)"
+#   end
+# end
+# end
+
 
 def print_footer(names)
   puts "Overall, we have #{names.count} great students"
