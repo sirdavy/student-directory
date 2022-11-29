@@ -30,7 +30,7 @@ def print(students)
   while print_count <= 1 do
     print_count += 1
     students.each.with_index(1) do |student, i|
-    puts "#{i}.#{student[:name]}".ljust(20) + "Hobby: #{student[:hobbies]}".ljust(25) + "Country of Birth: #{student[:country_of_birth]}".ljust(25) + "Height: #{student[:height]}".ljust(25) + "(#{student[:cohort]} cohort)".ljust(20)
+    puts "#{i}.#{student[:name]}".ljust(20) + "Hobby: #{student[:hobbies]}".ljust(25) + "Country of Birth: #{student[:country_of_birth]}".ljust(30) + "Height: #{student[:height]}".ljust(25) + "(#{student[:cohort]} cohort)".ljust(20)
     end
   end
 end
