@@ -57,20 +57,38 @@ def print_header
   puts "_____________"
 end
 
+
 def print(students)
   print_count = 1
   while print_count <= 1 do
     print_count += 1
-    students.each.with_index(1) do |student, i|
-    puts "#{i}.#{student[:name]}".ljust(20) + "Hobby: #{student[:hobbies]}".ljust(25) + "Country of Birth: #{student[:country_of_birth]}".ljust(35) + "Height: #{student[:height]}".ljust(25) + "(#{student[:cohort]} cohort)".ljust(20)
-    end
+    cohorts = students.map { |p| p[:cohort] }.uniq
+    #maps the "students" array - each element a hash -, designates each hash 'p', 
+    #takes each hash and calls the value of the cohort key 
+    # .uniqs them so there aren't doubles and puts them in an array called "cohorts". So an order is set.
+    cohorts.each do |x|
+      # goes through the new array "cohorts" and designates each month as X  
+    temp_students = students.select { |p| p[:cohort] == x}
+    # creates a new array "temp_students" then selects to go in it from 
+    #the "students" array the hashes where cohort equals eg november, december then jan as per order from .uniq
+    temp_students.each do |student|
+      #temp_students is now an array filled with elements that are hashes 
+      #in order of month. this designates each hash as "student" 
+    puts "#{student[:name]}".ljust(20) + "Hobby: #{student[:hobbies]}".ljust(25) + "Country of Birth: #{student[:country_of_birth]}".ljust(35) + "Height: #{student[:height]}".ljust(25) + "(#{student[:cohort]} cohort)".ljust(20)
+  #then says print each "student" with these keys in a nice string.
+  end  
+  end  
   end
 end
+
+
 
 def print_footer(names)
   puts "Overall, we have #{names.count} great students"
 end
 
+
+ 
 students = input_students
 #nothing happens until we call the methods
 print_header
