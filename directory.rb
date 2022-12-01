@@ -1,30 +1,3 @@
-# SAFETY
-# def input_students
-#   puts "Please enter the name of the student"
-#   puts "To finish, just hit return twice"
-#     name = gets.chomp
-#     students = []
-#     while !name.empty? do
-#       puts "Please enter the hobby of the student"
-#       hobby = gets.chomp 
-#       puts "Please enter the student's country of birth"
-#       country = gets.chomp 
-#       puts "Please enter the height of the student"
-#       height = gets.chomp 
-#       students <<{name: name, hobbies: hobby, country_of_birth: country, height: height, cohort: :november} # for each name entered, creates a template for the hash
-#       puts "Now we have #{students.count} students"
-#       puts "Please enter the name of the student"
-#       # get another name from user 
-#       name = gets.chomp
-#     end
-#     #returns the array of students
-#     students
-#   end
-# SAFETY
-
-
-
-
 def input_students
   puts "Please enter the name of the student"
   puts "To finish, just hit return twice"
@@ -43,7 +16,8 @@ def input_students
       if !cohort_months.include?(cohort) then cohort = "Unknown"
       end
       students <<{name: name, hobbies: hobby, country_of_birth: country, height: height, cohort: cohort.to_sym} # for each name entered, creates a template for the hash
-      puts "Now we have #{students.count} students"
+      students.count > 1 ? (puts "Now we have #{students.count} students") : (puts "Now we have #{students.count} student")
+      # puts "Now we have #{students.count} students"
       puts "Please enter the name of the student"
       # get another name from user 
       name = gets.chomp
