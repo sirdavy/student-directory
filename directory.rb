@@ -1,7 +1,7 @@
 def input_students
   puts "Please enter the name of the student"
   puts "To finish, just hit return twice"
-    name = gets.chomp.capitalize
+    name = gets.delete("\n")   #.chomp.capitalize
     students = []
     cohort_months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     while !name.empty? do
@@ -55,13 +55,9 @@ def print(students)
   end
 end
 
-
-
 def print_footer(names)
   puts "Overall, we have #{names.count} great students"
 end
-
-
  
 students = input_students
 #nothing happens until we call the methods
